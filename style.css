@@ -209,7 +209,9 @@ body {
     border-bottom-left-radius: .5rem;
 }
 
-.info-title {}
+.info-title {
+    font-size: 1.1rem;
+}
 
 .info-list {
     padding: 0;

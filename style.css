@@ -1,0 +1,241 @@
+:root {
+    /* Colors */
+
+    /*Primary*/
+    --Cyan: hsl(179, 62%, 43%);
+    --cyan-hsl: 179, 62%, 43%;
+    --Bright-Yellow: hsl(71, 73%, 54%);
+
+    /*Neutral*/
+    --Light-Gray: hsl(204, 43%, 93%);
+    --Grayish-Blue: hsl(218, 22%, 67%);
+
+
+    /* Fonts */
+
+    --fs-base: 'Karla', sans-serif; 
+    --fw-regular: 400;
+    --fw-bold: 700;
+
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+    margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role="list"],
+ol[role="list"] {
+    list-style: none;
+}
+
+/* Set core root defaults */
+html:focus-within {
+    scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+    min-height: 100vh;
+    text-rendering: optimizeSpeed;
+    line-height: 1.5;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+    text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+    max-width: 100%;
+    display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+    html:focus-within {
+        scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+}
+
+/* General */
+body {
+    font-family: var(--fs-base);
+    font-weight: var(--fw-regular);
+    background-color: var(--Light-Gray);
+    color: var(--Grayish-Blue);
+
+    display: grid;
+    place-content: center;
+}
+
+.wrapper {
+    margin-inline: auto;
+    margin-block: 1rem;
+    max-width: min(100% - 4rem, 90rem);
+}
+
+.flow-content > * + * {
+    margin-block-start: var(--spacer, 1em);
+}
+
+.btn {
+    display: inline-block;
+    padding-block: .6em;
+    width: 100%;
+    font-weight: var(--fw-bold);
+    text-align: center;
+    color: currentColor;
+    text-decoration: none;
+    background-color: var(--Bright-Yellow);
+    border-radius: .25rem;
+    box-shadow: 0 0 .3rem .01rem rgba(0, 0, 0, .15);
+
+    margin-block-start: 1.875rem;
+}
+
+.btn:focus,
+.btn:hover {
+    opacity: .8;
+}
+
+
+.price-grid {
+    max-width: 40rem;
+}
+
+.price-grid__join {
+    --spacer: 1.4rem;
+    padding: 1.375rem;
+    font-size: .9rem;
+    background-color: white;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+}
+
+.price-grid__join p:last-child {
+    line-height: 1.7;
+}
+
+.join-title {
+    color: var(--Cyan);
+    font-weight: var(--fw-bold);
+}
+
+.join-subtitle {
+    color: var(--Bright-Yellow);
+    font-weight: var(--fw-bold);
+}
+
+
+.price-grid__subscribe-info {
+    display: grid;
+}
+
+
+.price-grid__subscribe {
+    padding: 1.375rem;
+    background-color: var(--Cyan);
+    color: var(--Light-Gray);
+    display: grid;
+    align-items: start;
+}
+
+.price-grid__subscribe .btn {
+    align-self: end;
+}
+
+.subscribe-title {
+    font-size: 1.1rem;
+    font-weight: var(--fw-bold);
+}
+
+.subscribe-price {
+    margin-block-start: .7rem;
+    display: flex;
+    align-items: center;
+    gap: .7rem;
+}
+
+.subscribe-price span {
+    font-size: 2rem;
+    font-weight: var(--fw-bold);
+}
+
+.subscribe-price p {
+    opacity: .7;
+}
+
+.price-grid__info {
+    padding: 1.375rem;
+    background-color: hsla(var(--cyan-hsl), .85);
+    color: var(--Light-Gray);
+    border-bottom-right-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+}
+
+.info-title {}
+
+.info-list {
+    padding: 0;
+    font-size: .9rem;
+    opacity: .9;
+}
+
+@media (width >= 35rem) {
+    .price-grid__subscribe-info {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .price-grid__join p:last-child {
+        margin-block-start: .5em;
+    }
+
+    .price-grid__subscribe,
+    .price-grid__info {
+        padding: 2.5rem;
+    }
+
+    .price-grid__subscribe {
+        border-bottom-left-radius: .5rem;
+    }
+
+    .price-grid__info {
+        border-bottom-left-radius: unset;
+    }
+}
